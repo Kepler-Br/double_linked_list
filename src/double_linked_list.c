@@ -129,6 +129,38 @@ void double_ll_pop_front(t_double_linked_list **lst, void(*destroy_function)(voi
         *lst = previous;
 }
 
+void double_ll_pop_element(t_double_linked_list **lst, void(*destroy_function)(void*))
+{
+    t_double_linked_list *to_pop;
+
+
+    if(lst == NULL || *lst == NULL)
+        return;
+    to_pop = *lst;
+    if((*lst)->previous == NULL || (*lst)->next == NULL)
+    {
+        if((*lst)->previous == NULL && (*lst)->next == NULL)
+            (*lst) = NULL;
+        else if((*lst)->previous == NULL)
+        {
+            (*lst) = (*lst)->next;
+            (*lst)->previous = NULL;
+        }
+        else if((*lst)->next == NULL)
+        {
+            (*lst) = (*lst)->previous;
+            (*lst)->next = NULL;
+        }
+    }
+    else
+    {
+        (*lst)->previous->next = (*lst)->next;
+        (*lst)->next->previous = (*lst)->previous;
+    }
+    double_ll_destroy_single(to_pop, destroy_function);
+    (*lst) = double_ll_back(*lst);
+}
+
 void double_ll_pop_back(t_double_linked_list **lst, void(*destroy_function)(void*))
 {
     t_double_linked_list *back;
