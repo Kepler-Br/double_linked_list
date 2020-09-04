@@ -52,3 +52,7 @@ compile_commands.json
 *creator.user*
 cmake-build-debug
 .idea
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+libdouble_linked_list.a
