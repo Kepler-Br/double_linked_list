@@ -21,6 +21,7 @@ void double_ll_pop_front(t_double_linked_list **lst, void(*destroy_function)(voi
 void double_ll_pop_back(t_double_linked_list **lst, void(*destroy_function)(void*));
 void double_ll_pop_front_function(t_double_linked_list **lst, void(*fun)(void*));
 void double_ll_pop_back_function(t_double_linked_list **lst, void(*fun)(void*));
+void double_ll_pop_element(t_double_linked_list **lst, void(*fun)(void*));
 t_double_linked_list *double_ll_front(t_double_linked_list *lst);
 t_double_linked_list *double_ll_back(t_double_linked_list *lst);
 size_t double_ll_len(t_double_linked_list *lst);
